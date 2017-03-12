@@ -11,4 +11,6 @@ package tripbooking.Classes;
  */
 public class Trip {
     public float price;
+    
+    
 }
