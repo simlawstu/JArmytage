@@ -5,6 +5,7 @@
  */
 package tripbooking;
 
+import Forms.MainApplication;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javafx.application.Platform;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -42,7 +44,7 @@ public class TripBooking extends JApplet {
                 } catch (Exception e) {
                 }
                 
-                JFrame frame = new JFrame("JavaFX 2 in Swing");
+                JFrame frame = new JFrame();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
                 JApplet applet = new TripBooking();
@@ -61,32 +63,14 @@ public class TripBooking extends JApplet {
     
     @Override
     public void init() {
-        fxContainer = new JFXPanel();
-        fxContainer.setPreferredSize(new Dimension(JFXPANEL_WIDTH_INT, JFXPANEL_HEIGHT_INT));
-        add(fxContainer, BorderLayout.CENTER);
-        // create JavaFX scene
-        Platform.runLater(new Runnable() {
-            
-            @Override
-            public void run() {
-                createScene();
-            }
-        });
+        swingContainer = new MainApplication();
+        add(swingContainer, BorderLayout.CENTER);
     }
     
+    private JPanel swingContainer;
+    
     private void createScene() {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        fxContainer.setScene(new Scene(root));
+        
     }
     
 }
