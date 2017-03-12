@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 package tripbooking.Classes;
-import java.util.Collection;
 
 /**
  *
  * @author jasmi
  */
-public class Student {
-    
-    public String name;
-    public String telNo;
-    public Collection<Booking> bookings;
-    
-    
+public class ResidentialBooking extends Booking{
+    public Boolean hasConsent;
+    public Boolean isValid(){
+        if ((trip.price == payment) && hasConsent){
+            return true;
+        }
+        return false;
+    }
 }

@@ -4,17 +4,16 @@
  * and open the template in the editor.
  */
 package tripbooking.Classes;
-import java.util.Collection;
 
 /**
  *
  * @author jasmi
  */
-public class Student {
-    
-    public String name;
-    public String telNo;
-    public Collection<Booking> bookings;
-    
-    
+public class Booking  {
+    public Student student;
+    public Trip trip;
+    public float payment;
+    public Boolean isValid(){
+        return false;
+    }
 }
