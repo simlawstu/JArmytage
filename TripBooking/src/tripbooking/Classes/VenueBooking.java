@@ -11,7 +11,7 @@ package tripbooking.Classes;
  */
 public class VenueBooking {
     
-    public String name;
+    public Venue venue;
     public Date dateBooked;
 
     public Trip trip;
