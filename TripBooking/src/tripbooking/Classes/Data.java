@@ -15,5 +15,5 @@ public class Data {
     public static ArrayList<Student> students;
     public static ArrayList<Booking> bookings;
     public static ArrayList<Trip> trips;
-    
+    public static ArrayList<Destination> destinations;
 }

@@ -9,7 +9,10 @@ package tripbooking.Classes;
  *
  * @author jasmi
  */
-public class Transport {
+public class SundryCost {
+    
     public String name;
     public float cost;
+
+    public Trip trip;
 }
