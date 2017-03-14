@@ -5,17 +5,22 @@
  */
 package Forms;
 
+import tripbooking.Classes.Student;
+
 /**
  *
  * @author jasmi
  */
 public class AddStudent extends javax.swing.JFrame {
 
+    public MainApplication mainform;
     /**
      * Creates new form AddStudent
      */
-    public AddStudent() {
+    public AddStudent(MainApplication form) {
+        mainform = form;
         initComponents();
+        
     }
 
     /**
@@ -102,7 +107,19 @@ public class AddStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         // TODO add your handling code here:
+        
+        Student student = new Student();
+        student.name = jTextField1.getText();
+        student.telNo = jTextField2.getText();      
+        
+        MainApplication.Students.add(student);
+        mainform.UpdateStudentTable();
+        
+        
+        
+        // Render list of students
+        
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -137,11 +154,11 @@ public class AddStudent extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddStudent().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AddStudent().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

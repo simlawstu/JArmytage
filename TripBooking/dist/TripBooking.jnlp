@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TripBooking.jar" size="16881" download="eager" />
+    <jar href="TripBooking.jar" size="19296" download="eager" />
   </resources>
   <application-desc main-class="tripbooking.TripBooking"  name="TripBooking" >
   </application-desc>

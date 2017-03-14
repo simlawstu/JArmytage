@@ -5,7 +5,11 @@
  */
 package Forms;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import tripbooking.Classes.Student;
 
 /**
@@ -13,13 +17,33 @@ import tripbooking.Classes.Student;
  * @author jasmi
  */
 public class MainApplication extends javax.swing.JPanel {
+    
+    public static ArrayList<Student> Students;
 
     /**
      * Creates new form MainApplication
      */
     public MainApplication() {
         
+        MainApplication.Students = new ArrayList<Student>();
         initComponents();
+        
+        
+    }
+    
+    public void UpdateStudentTable(){
+        DefaultTableModel dtm = new DefaultTableModel(0, 0);
+        
+        String header[] = new String[]{"Student Name", "Telephone Number"};
+        dtm.setColumnIdentifiers(header);
+        StudentTable.setModel(dtm);     
+        
+        // Loop through main application students and create an entry in the table for each student
+        
+        for(Iterator<Student> students = MainApplication.Students.iterator(); students.hasNext();){
+            Student student = students.next();
+            dtm.addRow(new Object[] {student.name, student.telNo});
+        }
     }
 
     /**
@@ -40,7 +64,7 @@ public class MainApplication extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        StudentTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -117,7 +141,7 @@ public class MainApplication extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Bookings", jPanel2);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        StudentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -136,7 +160,7 @@ public class MainApplication extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(StudentTable);
 
         jButton1.setText("Add Student");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +288,7 @@ public class MainApplication extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new AddStudent().setVisible(true);
+        new AddStudent(this).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -273,6 +297,7 @@ public class MainApplication extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable StudentTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -296,7 +321,6 @@ public class MainApplication extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
