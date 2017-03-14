@@ -10,5 +10,8 @@ package tripbooking.Classes;
  * @author jasmi
  */
 public class Accommodation {
-    
+    public String name;
+    public float cost;
+    public int capacity;
+    public Trip trip;
 }
